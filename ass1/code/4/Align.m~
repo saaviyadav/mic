@@ -1,0 +1,11 @@
+function [aligned] = Align(ref,original)
+    for i = 0:5:360
+        mTheta = [cos(i) -sin(i);sin(i) cos(i)];
+        changed = mTheta*original;
+        error(i) = sum(sum((ref - changed).^2));
+    end
+    [M, theta] = min(error);
+    aligned = 
+end
+
+function [mTheta] = generateM(
